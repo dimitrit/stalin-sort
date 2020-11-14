@@ -93,7 +93,6 @@ prtdec:
                 call prtdigit
                 ld c,-10                ; process 10s digit
                 call prtdigit
-                ld e,0
                 ld c,-1                
 prtdigit:
                 ld a,'0'-1              ; process digit
@@ -105,6 +104,7 @@ incdgt:
                 cp e                    ; is it a leading zero?
                 ret z                   ; yes, skip digit
                 call prtchr
+                ld e,0
                 ret
 prtchr:
                 push bc                 ; save registers
